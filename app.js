@@ -11,7 +11,7 @@ var expressSession = require('express-session')({secret: 'User',resave: true, sa
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-mongoose.connect('mongodb://localhost:27017/appointment').then((db) => {console.log('Server Connected...')}, (err) => next(err))
+mongoose.connect('mongodb://localhost:27017/appointment', {useNewUrlParser: true, useUnifiedTopology: true}).then((db) => {console.log('Server Connected...')}, (err) => next(err))
 .catch((err) => next(err));
 
 var app = express();
